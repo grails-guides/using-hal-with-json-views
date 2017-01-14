@@ -11,7 +11,7 @@ buildscript {
 }
 
 version "0.1"
-group "using.hal.json.with.json.views"
+group "using.hal.with.json.views"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
