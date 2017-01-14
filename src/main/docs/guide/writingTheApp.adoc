@@ -1,0 +1,1 @@
+First we need to create our API. Grails provides excellent support for RESTful url mappings to expose domain resources.

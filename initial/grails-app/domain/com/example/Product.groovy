@@ -2,7 +2,7 @@ package com.example
 
 import grails.rest.*
 
-@Resource(readOnly = false, formats = ['json', 'xml'])
+@Resource(readOnly = true, formats = ['json', 'xml'])
 class Product {
 
     String name
