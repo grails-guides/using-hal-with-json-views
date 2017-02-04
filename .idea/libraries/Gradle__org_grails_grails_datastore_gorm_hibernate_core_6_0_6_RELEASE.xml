@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.grails:grails-datastore-gorm-hibernate-core:6.0.6.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-datastore-gorm-hibernate-core/6.0.6.RELEASE/93a32200f9fbafa0dfa852e871a4f8ebcc56bfb4/grails-datastore-gorm-hibernate-core-6.0.6.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-datastore-gorm-hibernate-core/6.0.6.RELEASE/cb5c6d53c8b7e2dc5d63296ff8c5033303706748/grails-datastore-gorm-hibernate-core-6.0.6.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.grails:grails-datastore-rest-client:6.0.6.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-datastore-rest-client/6.0.6.RELEASE/38e48f208200f6f9317d37eca03794935825a570/grails-datastore-rest-client-6.0.6.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails/grails-datastore-rest-client/6.0.6.RELEASE/c1f3393b2570f4250453dff8193a2ab2b770f13b/grails-datastore-rest-client-6.0.6.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

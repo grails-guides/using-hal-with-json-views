@@ -2,6 +2,16 @@ gettingStarted:
   title: Getting Started
   requirements: What you will need
   howto: How to complete the guide
-writingTheApp:
-  title: Writing the Application
-runningTheApp:  title: Running the Application
+runningTheApp: Running the Application
+buildingApi:
+  title: Building our API
+  jsonViews: Introducing JSON Views
+  customizingOurApi: Customizing our API
+hal:
+  title: Make our API discoverable via HAL
+  links: Include links to resources
+  templates: Use templates for collections
+  embedded: Embed associated objects
+  pagination: Paginate results
+explorableAPI:
+  title: Explore the API

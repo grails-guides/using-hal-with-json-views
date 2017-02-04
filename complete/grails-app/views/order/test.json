@@ -1,0 +1,59 @@
+{
+  _links: {
+    self: {
+      href: "http://localhost:8080/api/order?id=1",
+      hreflang: "en_US",
+      type: "application/hal+json"
+    },
+    customer: {
+      href: "http://localhost:8080/api/customer?id=1",
+      hreflang: "en_US",
+      type: "application/hal+json"
+    }
+  },
+  id: "0A12321",
+  shippingCost: 13.54,
+  date: "2-04-2017",
+  shippingAddress: {
+    street: "321 Arrow Ln",
+    street2: null,
+    city: "Chicago",
+    state: "IL",
+    zip: 646465
+  },
+  products: [
+    {
+      _links: {
+        self: {
+          href: "http://localhost:8080/api/product/11",
+          hreflang: "en_US",
+          type: "application/hal+json"
+        }
+      },
+      id: 11
+    },
+    {
+      _links: {
+        self: {
+          href: "http://localhost:8080/api/product/6",
+          hreflang: "en_US",
+          type: "application/hal+json"
+        }
+      },
+      id: 6
+    },
+    {
+      _links: {
+        self: {
+          href: "http://localhost:8080/api/product/1",
+          hreflang: "en_US",
+          type: "application/hal+json"
+        }
+      },
+      id: 1
+    }
+  ],
+  customer: {
+    id: 1
+  }
+}

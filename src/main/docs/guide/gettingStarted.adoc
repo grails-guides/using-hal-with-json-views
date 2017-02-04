@@ -7,6 +7,8 @@ ____
 
 The purpose of HAL is make APIs "discoverable" - it defines a set of conventions that allow consumers of your API to follow links between resources, as well as providing pagination and other convenience features for "exploring" an API. HAL is a popular standard for implementing https://en.wikipedia.org/wiki/HATEOAS[HATEOAS] (Hypermedia As The Engine Of Application State) architecture, which is an extension of basic REST architecture.
 
+image::http://stateless.co/info-model.png[caption="HAL Resource Structure ", title="HAL Resource Structure, from http://stateless.co", alt="Sunset", width="640", link="http://stateless.co/hal_specification.html"]
+
 TIP: For a thorough introduction to HAL, check out the overview and specification at the following URL: http://stateless.co/hal_specification.html
 
 Grails provides support for HAL through JSON views, which are part of the Grails Views library. You can use this library in an existing application following the installation steps in the documentation, or you can create a new application using either the `rest-api` profile or one of the frontend profiles (`angular`, `angular2` and `react`) which extend the `rest-api` profile.

@@ -119,7 +119,7 @@
             <prop name="title">Using HAL with JSON Views</prop>
             <prop name="githubSlug">grails-guides/using-hal-with-json-views</prop>
             <prop name="gradleWrapperVersion">3.0</prop>
-            <prop name="grailsVersion">3.2.4</prop>
+            <prop name="grailsVersion">3.2.5</prop>
             <prop name="bintrayUser">zacharyklein</prop>
             <prop name="subtitle">Learn to build discoverable APIs with Grails</prop>
             <prop name="bintrayKey">07003b572d08f4091eb0a782d4bff663074eb758</prop>

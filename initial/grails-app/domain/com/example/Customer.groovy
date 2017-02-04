@@ -2,7 +2,7 @@ package com.example
 
 import grails.rest.*
 
-@Resource(readOnly = true, formats = ['json', 'xml'])
+@Resource(readOnly = true, uri='/api/customer')
 class Customer {
 
     String firstName
@@ -14,10 +14,5 @@ class Customer {
 
     static constraints = {
         orders nullable: true
-    }
-
-
-    String getFullName() {
-        return "${firstName} ${lastName}"
     }
 }

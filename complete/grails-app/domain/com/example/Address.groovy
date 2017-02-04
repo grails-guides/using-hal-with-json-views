@@ -1,8 +1,5 @@
 package com.example
 
-import grails.rest.*
-
-@Resource(readOnly = true, formats = ['json', 'xml'])
 class Address {
 
     String street
@@ -13,5 +10,6 @@ class Address {
     Integer zip
 
     static constraints = {
+        street2 nullable: true
     }
 }

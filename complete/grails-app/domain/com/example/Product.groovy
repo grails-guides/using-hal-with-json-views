@@ -10,6 +10,6 @@ class Product {
 
     BigDecimal price
 
-    static constraints = {
-    }
+    static belongsTo = [ category : Category ]
+
 }
