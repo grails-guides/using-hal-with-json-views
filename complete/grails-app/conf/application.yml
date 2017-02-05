@@ -51,7 +51,8 @@ grails:
             js: text/javascript
             rss: application/rss+xml
             text: text/plain
-            all: '*/*'            
+            all: '*/*'
+            inventory: "application/vnd.com.example.inventory+json" #<1>
     urlmapping:
         cache:
             maxsize: 1000

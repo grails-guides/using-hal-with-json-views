@@ -7,7 +7,7 @@ ____
 
 The purpose of HAL is make APIs "discoverable" - it defines a set of conventions that allow consumers of your API to follow links between resources, as well as providing pagination and other convenience features for "exploring" an API. HAL is a popular standard for implementing https://en.wikipedia.org/wiki/HATEOAS[HATEOAS] (Hypermedia As The Engine Of Application State) architecture, which is an extension of basic REST architecture.
 
-image::http://stateless.co/info-model.png[caption="HAL Resource Structure ", title="HAL Resource Structure, from http://stateless.co", alt="Sunset", width="640", link="http://stateless.co/hal_specification.html"]
+image::http://stateless.co/info-model.png[title="HAL Resource Structure, from http://stateless.co", alt="HAL Resource Structure", width="640", link="http://stateless.co/hal_specification.html"]
 
 TIP: For a thorough introduction to HAL, check out the overview and specification at the following URL: http://stateless.co/hal_specification.html
 

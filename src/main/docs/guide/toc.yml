@@ -1,17 +1,18 @@
 gettingStarted: 
   title: Getting Started
-  requirements: What you will need
-  howto: How to complete the guide
+  requirements: What You will Need
+  howto: How to Complete the Guide
 runningTheApp: Running the Application
 buildingApi:
   title: Building our API
   jsonViews: Introducing JSON Views
   customizingOurApi: Customizing our API
 hal:
-  title: Make our API discoverable via HAL
-  links: Include links to resources
-  templates: Use templates for collections
-  embedded: Embed associated objects
-  pagination: Paginate results
+  title: Make our API Discoverable via HAL
+  links: Linked Resources
+  templates: Render Collections with Templates
+  embedded: Embed Associated Objects
+  pagination: Paginate Results
+  mimeTypes: Custom MIME Types
 explorableAPI:
   title: Explore the API
