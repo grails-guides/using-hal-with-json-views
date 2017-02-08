@@ -24,7 +24,7 @@ include::{sourceDir}/grails-app/views/product/show_mime.gson[]
 ----
 <1> The `hal.type()` method takes a string to identify the custom MIME type in the `application.yml` file, or an explicit MIME specification as a string
 
-Make a request to `http://localhost:8080/api/product/1` to see the custom content-type:
+Make a request to `http://localhost:8080/api/products/1` to see the custom content-type:
 
 [source, bash]
 ----
@@ -39,7 +39,7 @@ Date: Sun, 05 Feb 2017 01:51:08 GMT
 {
     "_links": {
         "self": {
-            "href":"http://localhost:8080/api/product/1",
+            "href":"http://localhost:8080/api/products/1",
             "hreflang":"en_US",
             "type":"application/hal+json"
         }
@@ -48,7 +48,7 @@ Date: Sun, 05 Feb 2017 01:51:08 GMT
         "category":{
             "_links":{
                 "self":{
-                    "href":"http://localhost:8080/api/category/1",
+                    "href":"http://localhost:8080/api/categories/1",
                     "hreflang":"en_US",
                     "type":"application/hal+json"
                 }

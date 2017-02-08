@@ -41,14 +41,14 @@ include::{sourceDir}/grails-app/views/product/show.gson[]
 ----
 <1> We're passing `embedded` method a map of element names (in this case `category`) to objects to embed (`product.category`)
 
-Now make a request to `http://localhost:8080/api/product/1`:
+Now make a request to `http://localhost:8080/api/products/1`:
 
 [source,javascript]
 ----
 {
     _links: {
         self: {
-            href: "http://localhost:8080/api/product/1",
+            href: "http://localhost:8080/api/products/1",
             hreflang: "en_US",
             type: "application/hal+json"
         }
@@ -57,7 +57,7 @@ Now make a request to `http://localhost:8080/api/product/1`:
         category: { //<1>
             _links: {
                 self: {
-                    href: "http://localhost:8080/api/category/1",
+                    href: "http://localhost:8080/api/categories/1",
                     hreflang: "en_US",
                     type: "application/hal+json"
                 }
@@ -81,7 +81,7 @@ Let's use the `embedded method on the `order/show.gson` view, and embed the `ord
 include::{sourceDir}/grails-app/views/order/show_v4.gson[indent=0,lines="1..9"]
 ----
 
-Make a request to `http://localhost:8080/api/order/1`:
+Make a request to `http://localhost:8080/api/orders/1`:
 
 [source, javascript]
 ----
@@ -93,7 +93,7 @@ Make a request to `http://localhost:8080/api/order/1`:
         customer: {
             _links: {
                 self: {
-                    href: "http://localhost:8080/api/customer/1",
+                    href: "http://localhost:8080/api/customers/1",
                     hreflang: "en_US",
                     type: "application/hal+json"
                 }
@@ -116,7 +116,7 @@ Now clients of our API can access the details of embedded resources, without mak
 //examples are using the fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 
 //retrieve an order instance from the API
-fetch("http://localhost:8080/api/order/1").then(function(response) {
+fetch("http://localhost:8080/api/orders/1").then(function(response) {
     return response.json();
 }).then(function(data) {
     this.order = data;
@@ -128,7 +128,7 @@ console.log("Order ID: " + this.order.id);
 console.log("Customer: " + customer.firstName + " " + customer.lastName);
 
 //retrieve a product instance from the API
-fetch("http://localhost:8080/api/product/1").then(function(response) {
+fetch("http://localhost:8080/api/products/1").then(function(response) {
     return response.json();
 }).then(function(data) {
     this.product = data;

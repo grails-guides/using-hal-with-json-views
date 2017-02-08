@@ -60,7 +60,7 @@ include::{sourceDir}/grails-app/views/product/index.gson[]
 include::{sourceDir}/grails-app/views/product/_product.gson[]
 ----
 
-Make a request to `http://locahost:8080/api/product`:
+Make a request to `http://locahost:8080/api/products`:
 
 [source, javascript]
 ----

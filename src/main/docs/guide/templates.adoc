@@ -20,7 +20,7 @@ include::{sourceDir}/grails-app/views/order/show_v3.gson[]
 
 TIP: For more information on using templates in JSON views, see the http://views.grails.org/latest/#_templates[Grails Views documentation].
 
-Make a request to `http://localhost:8080/api/order/1`, and you should see `_links` for each product in the `products` array:
+Make a request to `http://localhost:8080/api/orders/1`, and you should see `_links` for each product in the `products` array:
 
 [source,javascript]
 ----
@@ -30,7 +30,7 @@ Make a request to `http://localhost:8080/api/order/1`, and you should see `_link
     {
       _links: {
         self: {
-          href: "http://localhost:8080/api/product/11",
+          href: "http://localhost:8080/api/products/11",
           hreflang: "en_US",
           type: "application/hal+json"
         }
@@ -40,7 +40,7 @@ Make a request to `http://localhost:8080/api/order/1`, and you should see `_link
     {
       _links: {
         self: {
-          href: "http://localhost:8080/api/product/6",
+          href: "http://localhost:8080/api/products/6",
           hreflang: "en_US",
           type: "application/hal+json"
         }
@@ -50,7 +50,7 @@ Make a request to `http://localhost:8080/api/order/1`, and you should see `_link
     {
       _links: {
         self: {
-          href: "http://localhost:8080/api/product/1",
+          href: "http://localhost:8080/api/products/1",
           hreflang: "en_US",
           type: "application/hal+json"
         }

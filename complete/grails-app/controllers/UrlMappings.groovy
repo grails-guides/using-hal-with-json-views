@@ -17,7 +17,7 @@ class UrlMappings {
         patch "/$controller/$id(.$format)?"(action:"patch")
 
 
-        "/api/product"(resources:"product")
+        "/api/products"(resources:"product")
 
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')
