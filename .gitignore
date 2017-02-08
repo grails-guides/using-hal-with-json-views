@@ -2,3 +2,4 @@ build/
 .gradle/
 *.iml
 target/
+/.idea/workspace.xml
