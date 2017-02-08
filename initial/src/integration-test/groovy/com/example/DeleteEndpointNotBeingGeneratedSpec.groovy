@@ -19,14 +19,6 @@ class DeleteEndpointNotBeingGeneratedSpec extends Specification {
         }
 
         then:
-        resp.status == 405
-
-        when:
-        resp = rest.get("http://localhost:${serverPort}/api/order/1") {
-            header("Accept", "application/json")
-        }
-
-        then:
-        resp.status == 200
+        resp.status == 404
     }
 }

@@ -44,7 +44,7 @@ class OrderShowSpec extends Specification {
 }
 '''
 // end::orderJSON[]
-        def resp = rest.get("http://localhost:${serverPort}/api/order/1") {
+        def resp = rest.get("http://localhost:${serverPort}/api/orders/1") {
             header("Accept", "application/json")
         }
         JSONAssert.assertEquals(expectedJsonString, resp.json.toString(), false)
