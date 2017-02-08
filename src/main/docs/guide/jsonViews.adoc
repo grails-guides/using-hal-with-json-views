@@ -1,9 +1,7 @@
 Here's a trivial example of a JSON view:
 
 [source, groovy]
-.grails-app/views/example/example.json
 ----
-
 json.message {
     hello "world"
 }
@@ -19,9 +17,7 @@ This JSON view would produce the following ouput when rendered:
 JSON views also support a `model` which references the data passed in to the view, as seen below:
 
 [source, groovy]
-.grails-app/views/example/example.json
 ----
-
 model {
     String message
 }

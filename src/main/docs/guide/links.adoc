@@ -64,7 +64,7 @@ Calling `hal.links()` on our domain resource produces the following JSON output:
 {
     _links: {
         self: {
-            href: "http://localhost:8080/api/order/1",
+            href: "http://localhost:8080/api/orders/1",
             hreflang: "en_US",
             type: "application/hal+json"
         }
@@ -81,29 +81,11 @@ include::{sourceDir}/grails-app/views/order/show_v2.gson[]
 ----
 <1> The `links` method can take a domain resource instance, or a map of link names and objects to link.
 
-Make a request to `http://localhost:8080/api/order/1:
+Make a request to `http://localhost:8080/api/orders/1:
 
 [source, javascript]
 ----
-{
-    _links: {
-        self: {
-            href: "http://localhost:8080/api/order?id=1",
-            hreflang: "en_US",
-            type: "application/hal+json"
-        },
-        customer: {
-            href: "http://localhost:8080/api/customer?id=1",
-            hreflang: "en_US",
-            type: "application/hal+json"
-        }
-    },
+include::{sourceDir}/src/test/groovy/com/example/OrderShowV2Spec.groovy[indent=0,lines=20..32]
     //...
 }
 ----
-
-
-
-
-
-

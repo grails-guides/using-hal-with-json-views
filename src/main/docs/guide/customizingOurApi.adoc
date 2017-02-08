@@ -1,4 +1,4 @@
-Let's create a JSON view to customize the output from the `/api/order/$id` endpoint. Right now, the default JSON renderer includes ids of all associated objects. However, we don't want to expose the `id` of the `shippingAddress` property (which is an instance of our `Address` domain class) - it's not exposed as a domain resource in our API and it's only relevant to users of API as part of an `Order` or `Customer`. Ideally, we'd like to include the `shippingAddress` fields in the JSON output of our `Order` API.
+Let's create a JSON view to customize the output from the `/api/orders/$id` endpoint. Right now, the default JSON renderer includes ids of all associated objects. However, we don't want to expose the `id` of the `shippingAddress` property (which is an instance of our `Address` domain class) - it's not exposed as a domain resource in our API and it's only relevant to users of API as part of an `Order` or `Customer`. Ideally, we'd like to include the `shippingAddress` fields in the JSON output of our `Order` API.
 
 In addition, we'd like to express the `orderId` property as the order's `id`, rather than the actual id from the database.
 
@@ -22,40 +22,16 @@ include::{sourceDir}/grails-app/views/order/show_v1.gson[]
 <2> Here we're filling out our `shippingAddress` with the fields from the `Address` class
 <3> Notice that we're iterating over a collect (`order.products`) with the `collect` method and returning a map - this will create a JSON array of objects
 
-Now if you make a request to `/api/order/1`, you should see the following output:
+Now if you make a request to `/api/orders/1`, you should see the following output:
 
 [source, bash]
 ----
-curl -H "Accept: application/json" localhost:8080/api/order/1
+curl -H "Accept: application/json" localhost:8080/api/orders/1
 ----
+
 [source, javascript]
 ----
-{
-    id: "0A12321",
-    shippingCost: 13.54,
-    date: "2-02-2017",
-    shippingAddress: {
-        street: "321 Arrow Ln",
-        street2: null,
-        city: "Chicago",
-        state: "IL",
-        zip: 646465
-    },
-    products: [
-        {
-            id: 11
-        },
-        {
-            id: 1
-        },
-        {
-            id: 6
-        }
-    ],
-    customer: {
-        id: 1
-    }
-}
+include::{sourceDir}/src/test/groovy/com/example/OrderShowV1Spec.groovy[indent=0,lines=25..50]
 ----
 
 Let's create another JSON view for our `Customer` domain class. Create a new directory under `grails-app/views`, called `customer`, and a new JSON view `show.gson`
@@ -72,4 +48,3 @@ Create a new JSON view called `show.gson`. This will resolve to the `show` actio
 ----
 include::{sourceDir}/grails-app/views/customer/show_v1.gson[]
 ----
-

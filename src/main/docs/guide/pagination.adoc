@@ -35,12 +35,12 @@ include::{sourceDir}/grails-app/controllers/com/example/ProductController.groovy
 <5> Property to sort by
 <6> Direction of sorting
 
-Finally, we need to edit our `UrlMappings` to create the rest endpoints that were formerly generated using the `@Resource` annotation. Grails supports a `resource` property on URL mappings that will generate these URLs automatically. Edit `grails-app/controllers/UrlMappings.groovy` and add the following rule to the `mappings` block:
+Finally, we need to edit our `UrlMappings` to create the rest endpoints that were formerly generated using the `@Resource` annotation. Grails supports a `resource` property on URL mappings that will generate these URLs automatically. Edit `UrlMappings.groovy` and add the following rule to the `mappings` block:
 
 [source,groovy]
-.grails-app/controller/UrlMappings.groovy
+.grails-app/controller/com/example/UrlMappings.groovy
 ----
-include::{sourceDir}/grails-app/controllers/UrlMappings.groovy[indent=0,lines="19..21"]
+include::{sourceDir}/grails-app/controllers/com/example/UrlMappings.groovy[indent=0,tag=urlMappingsWithResources]
 ----
 
 Now, we can create our new JSON view using pagination. Create the following view and template under `grails-app/views/product`:
@@ -60,64 +60,13 @@ include::{sourceDir}/grails-app/views/product/index.gson[]
 include::{sourceDir}/grails-app/views/product/_product.gson[]
 ----
 
-Make a request to `http://locahost:8080/api/product`:
+Make a request to `http://locahost:8080/api/products`:
 
 [source, javascript]
 ----
-{
-  _links: {
-    self: {
-      href: "http://localhost:8080/product/index?offset=0&max=10",
-      hreflang: "en_US",
-      type: "application/hal+json"
-    },
-    first: {
-      href: "http://localhost:8080/product/index?offset=0&max=10",
-      hreflang: "en_US"
-    },
-    next: {
-      href: "http://localhost:8080/product/index?offset=10&max=10",
-      hreflang: "en_US"
-    },
-    last: {
-      href: "http://localhost:8080/product/index?offset=10&max=10",
-      hreflang: "en_US"
-    }
-  },
-  products: [
-    {
-      _links: {
-        self: {
-            //...
-        }
-      },
-      name: "Cargo Pants",
-      id: "CLOTH001",
-      price: 15,
-      category: "Clothing"
-    },
-    {
-      _links: {
-        self: {
-            //...
-        }
-      },
-      name: "Sweater",
-      id: "CLOTH002",
-      price: 12,
-      category: "Clothing"
-    },
-    //...
-  ],
-  count: 13,
-  max: 10,
-  offset: 0,
-  sort: null,
-  order: null
-}
+include::{sourceDir}/src/test/groovy/com/example/ProductListSpec.groovy[indent=0,lines=20..177]
 ----
 
 Make a request to the `next` link, `http://localhost:8080/product/index?offset=10&max=10`, and you'll see the next page of results. Due to the small number of resources in our sample data there will only be 2 pages - try changing the `max` parameter in your request to 4 - you'll now retrieve additional pages to reflect the smaller page size.
 
 If you'd like, repeat these steps to enable pagination for the other domain resources, such as `Order` and `Customer`.
-
