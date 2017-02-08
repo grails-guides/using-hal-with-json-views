@@ -1,3 +1,5 @@
+package using.hal.json.with.json.views
+
 class UrlMappings {
 
     static mappings = {
