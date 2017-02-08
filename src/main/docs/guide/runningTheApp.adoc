@@ -15,7 +15,7 @@ Now that the Grails app is running, we can try out the API that Grails generated
 
 [source, bash]
 ----
-curl -H "Accept: application/json" localhost:8080/api/product
+curl -H "Accept: application/json" localhost:8080/api/products
 ----
 [source, javascript]
 ----

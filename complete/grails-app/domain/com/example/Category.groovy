@@ -1,9 +1,8 @@
 package com.example
 
-
 import grails.rest.*
 
-@Resource(readOnly = true, uri='/api/category')
+@Resource(readOnly = true, uri='/api/categories')
 class Category {
 
     String name
