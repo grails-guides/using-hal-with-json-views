@@ -3,7 +3,7 @@ Grails provides excellent support for RESTful url mappings to expose domain reso
 [source,groovy]
 .grails-app/domain/com/example/Customer.groovy
 ----
-include::{sourceDir}/grails-app/domain/com/example/Customer.groovy[indent=0,lines="1..7"]
+include::{sourceDir}/../initial/grails-app/domain/com/example/Customer.groovy[indent=0,lines="1..7"]
 ----
 <1> The `@Resource` annotation takes several optional arguments, including a URL endpoint and format options, as well as whether the API should only expose read endpoints
 
