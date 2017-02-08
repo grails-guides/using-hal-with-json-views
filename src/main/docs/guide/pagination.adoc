@@ -38,9 +38,9 @@ include::{sourceDir}/grails-app/controllers/com/example/ProductController.groovy
 Finally, we need to edit our `UrlMappings` to create the rest endpoints that were formerly generated using the `@Resource` annotation. Grails supports a `resource` property on URL mappings that will generate these URLs automatically. Edit `UrlMappings.groovy` and add the following rule to the `mappings` block:
 
 [source,groovy]
-.grails-app/controller/using/hal/json/with/json/views/UrlMappings.groovy
+.grails-app/controller/com/example/UrlMappings.groovy
 ----
-include::{sourceDir}/grails-app/controllers/using/hal/json/with/json/views/UrlMappings.groovy[indent=0,tag=urlMappingsWithResources]
+include::{sourceDir}/grails-app/controllers/com/example/UrlMappings.groovy[indent=0,tag=urlMappingsWithResources]
 ----
 
 Now, we can create our new JSON view using pagination. Create the following view and template under `grails-app/views/product`:

@@ -2,7 +2,7 @@
 grails:
     profile: rest-api
     codegen:
-        defaultPackage: using.hal.json.with.json.views
+        defaultPackage: com.example
     spring:
         transactionManagement:
             proxies: false

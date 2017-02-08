@@ -1,4 +1,4 @@
-package using.hal.json.with.json.views
+package com.example
 
 import grails.core.GrailsApplication
 import grails.util.Environment
