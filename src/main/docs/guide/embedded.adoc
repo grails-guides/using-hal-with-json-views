@@ -43,35 +43,12 @@ include::{sourceDir}/grails-app/views/product/show.gson[]
 
 Now make a request to `http://localhost:8080/api/products/1`:
 
-[source,javascript]
+[source, javascript]
 ----
-{
-    _links: {
-        self: {
-            href: "http://localhost:8080/api/products/1",
-            hreflang: "en_US",
-            type: "application/hal+json"
-        }
-    },
-    _embedded: {
-        category: { //<1>
-            _links: {
-                self: {
-                    href: "http://localhost:8080/api/categories/1",
-                    hreflang: "en_US",
-                    type: "application/hal+json"
-                }
-            },
-            name: "Clothing",
-            version: 0
-        }
-    },
-    id: "CLOTH001",
-    name: "Cargo Pants",
-    price: 15
-}
+include::{sourceDir}/src/test/groovy/com/example/ProductShowSpec.groovy[indent=0,lines=20..44]
 ----
-<1> The `category` object includes the default JSON renderer output for our `Category` resource, as well as a `_self` link so clients can request the category directly if needed.
+
+In previous code snippet, the `category` object includes the default JSON renderer output for our `Category` resource, as well as a `_self` link so clients can request the category directly if needed.
 
 Let's use the `embedded method on the `order/show.gson` view, and embed the `order.customer` resource:
 
@@ -89,23 +66,8 @@ Make a request to `http://localhost:8080/api/orders/1`:
     _links: {
     //...
     },
-    _embedded: {
-        customer: {
-            _links: {
-                self: {
-                    href: "http://localhost:8080/api/customers/1",
-                    hreflang: "en_US",
-                    type: "application/hal+json"
-                }
-            },
-            firstName: "Peter",
-            lastName: "River",
-            version: 0
-        }
-    },
-    id: "0A12321",
-    shippingCost: 13.54,
-    //...
+include::{sourceDir}/src/test/groovy/com/example/OrderShowV4Spec.groovy[lines=33..46]
+//...
 }
 ----
 

@@ -28,34 +28,10 @@ Now if you make a request to `/api/orders/1`, you should see the following outpu
 ----
 curl -H "Accept: application/json" localhost:8080/api/orders/1
 ----
+
 [source, javascript]
 ----
-{
-    id: "0A12321",
-    shippingCost: 13.54,
-    date: "2-02-2017",
-    shippingAddress: {
-        street: "321 Arrow Ln",
-        street2: null,
-        city: "Chicago",
-        state: "IL",
-        zip: 646465
-    },
-    products: [
-        {
-            id: 11
-        },
-        {
-            id: 1
-        },
-        {
-            id: 6
-        }
-    ],
-    customer: {
-        id: 1
-    }
-}
+include::{sourceDir}/src/test/groovy/com/example/OrderShowV1Spec.groovy[indent=0,lines=25..50]
 ----
 
 Let's create another JSON view for our `Customer` domain class. Create a new directory under `grails-app/views`, called `customer`, and a new JSON view `show.gson`
@@ -72,4 +48,3 @@ Create a new JSON view called `show.gson`. This will resolve to the `show` actio
 ----
 include::{sourceDir}/grails-app/views/customer/show_v1.gson[]
 ----
-

@@ -22,7 +22,7 @@ class BootStrap {
 
     }
 
-    private static void fixtureOrders(List<Product> products, List<Customer> customers) {
+    private static List<Order> fixtureOrders(List<Product> products, List<Customer> customers) {
         def orders = [
                 [orderId: "0A12321", shippingCost: 13.54, products: [products[5], products[0], products[10]], customer: customers[0], shippingAddress: customers[0].address],
                 [orderId: "0A16546", shippingCost: 9.19, products: [products[1], products[6], products[3]], customer: customers[0], shippingAddress: customers[0].address],
@@ -32,9 +32,10 @@ class BootStrap {
                 [orderId: "0F35523", shippingCost: 6.00, products: [products[11], products[0]], customer: customers[3], shippingAddress: new Address(street: '93 Harvey Blvd', state: State.AZ, city: "Phoenix", zip: 892342)]
         ].collect { new Order(it) }
         orders*.save()
+        orders
     }
 
-    private static List fixtureCustomers() {
+    private static List<Customer> fixtureCustomers() {
         def customers = [
                 [firstName: "Peter", lastName: "River", address: new Address(street: '321 Arrow Ln',
                                                                              state: State.IL,
@@ -57,7 +58,7 @@ class BootStrap {
         customers
     }
 
-    private static List fixtureProducts(Category clothing, Category furniture, Category tools) {
+    private static List<Product> fixtureProducts(Category clothing, Category furniture, Category tools) {
         def products = [
                 [name: 'Cargo Pants', inventoryId: 'CLOTH001', price: 15.00, category: clothing],
                 [name: 'Sweater', inventoryId: 'CLOTH002', price: 12.00, category: clothing],

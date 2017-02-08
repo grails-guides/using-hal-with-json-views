@@ -22,44 +22,16 @@ TIP: For more information on using templates in JSON views, see the http://views
 
 Make a request to `http://localhost:8080/api/orders/1`, and you should see `_links` for each product in the `products` array:
 
-[source,javascript]
+
+[source, javascript]
 ----
 {
 //...
-  products: [
-    {
-      _links: {
-        self: {
-          href: "http://localhost:8080/api/products/11",
-          hreflang: "en_US",
-          type: "application/hal+json"
-        }
-      },
-      id: 11
-    },
-    {
-      _links: {
-        self: {
-          href: "http://localhost:8080/api/products/6",
-          hreflang: "en_US",
-          type: "application/hal+json"
-        }
-      },
-      id: 6
-    },
-    {
-      _links: {
-        self: {
-          href: "http://localhost:8080/api/products/1",
-          hreflang: "en_US",
-          type: "application/hal+json"
-        }
-      },
-      id: 1
-    }
-  ]
+include::{sourceDir}/src/test/groovy/com/example/OrderShowV3Spec.groovy[indent=0,lines=43..74]
+//...
 }
 ----
+
 
 Let's use the same technique for the `Customer`'s orders - create a new template at `grails-app/views/customer/_order.gson`:
 [source,groovy]
