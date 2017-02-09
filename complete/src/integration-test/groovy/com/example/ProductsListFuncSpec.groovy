@@ -1,44 +1,44 @@
 package com.example
 
-import grails.plugin.json.view.test.JsonViewTest
-import grails.test.hibernate.HibernateSpec
+import grails.plugins.rest.client.RestBuilder
+import grails.test.mixin.integration.Integration
+import grails.transaction.Rollback
 import org.skyscreamer.jsonassert.JSONAssert
+import spock.lang.Ignore
+import spock.lang.Specification
 
-class ProductListSpec extends HibernateSpec implements JsonViewTest {
+@Integration
+@Rollback
+class ProductsListFuncSpec extends Specification {
 
+    @Ignore
     def "test pagination links appear in JSON"() {
-        setup:
-        def (Category clothing, Category furniture, Category tools) = BootStrap.fixtureCategories()
-        def products = BootStrap.fixtureProducts(clothing, furniture, tools)
-        def customers = BootStrap.fixtureCustomers()
-        BootStrap.fixtureOrders(products, customers)
+        given:
+        RestBuilder rest = new RestBuilder()
 
         when:
-        int max = 10
-        def result = render(view: "/product/index", model:[productList: products[0..<max],
-                                                           productCount: products.size(),
-                                                           max: max,
-                                                           offset: 0,
-                                                           sort: null,
-                                                           order: null])
-        def expectedJsonString = '''
+        def resp = rest.get("http://localhost:${serverPort}/api/products?lang=en") {
+            header("Accept", "application/json")
+        }
+
+        def expectedJsonString = """
 {
   "_links": {
     "self": {
-      "href": "http://localhost:8080/products?offset=0&max=10",
+      "href": "http://localhost:${serverPort}/products?offset=0&max=10",
       "hreflang": "en",
       "type": "application/hal+json"
     },
     "first": {
-      "href": "http://localhost:8080/products?offset=0&max=10",
+      "href": "http://localhost:${serverPort}/products?offset=0&max=10",
       "hreflang": "en"
     },
     "next": {
-      "href": "http://localhost:8080/products?offset=10&max=10",
+      "href": "http://localhost:${serverPort}/products?offset=10&max=10",
       "hreflang": "en"
     },
     "last": {
-      "href": "http://localhost:8080/products?offset=10&max=10",
+      "href": "http://localhost:${serverPort}/products?offset=10&max=10",
       "hreflang": "en"
     }
   },
@@ -46,7 +46,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/1",
+          "href": "http://localhost:${serverPort}/api/products/1",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -59,7 +59,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/2",
+          "href": "http://localhost:${serverPort}/api/products/2",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -72,7 +72,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/3",
+          "href": "http://localhost:${serverPort}/api/products/3",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -85,7 +85,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/4",
+          "href": "http://localhost:${serverPort}/api/products/4",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -98,7 +98,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/5",
+          "href": "http://localhost:${serverPort}/api/products/5",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -111,7 +111,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/6",
+          "href": "http://localhost:${serverPort}/api/products/6",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -124,7 +124,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/7",
+          "href": "http://localhost:${serverPort}/api/products/7",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -137,7 +137,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/8",
+          "href": "http://localhost:${serverPort}/api/products/8",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -150,7 +150,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/9",
+          "href": "http://localhost:${serverPort}/api/products/9",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -163,7 +163,7 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
     {
       "_links": {
         "self": {
-          "href": "http://localhost:8080/api/products/10",
+          "href": "http://localhost:${serverPort}/api/products/10",
           "hreflang": "en",
           "type": "application/hal+json"
         }
@@ -180,8 +180,8 @@ class ProductListSpec extends HibernateSpec implements JsonViewTest {
   "sort": null,
   "order": null
 }
-'''
-        JSONAssert.assertEquals(expectedJsonString, result.jsonText, true)
+"""
+        JSONAssert.assertEquals(expectedJsonString, resp.json.toString(), true)
 
         then:
         notThrown AssertionError

@@ -1,31 +1,34 @@
 package com.example
 
-import grails.plugin.json.view.test.JsonViewTest
-import grails.test.hibernate.HibernateSpec
+import grails.plugins.rest.client.RestBuilder
+import grails.test.mixin.integration.Integration
+import grails.transaction.Rollback
 import org.skyscreamer.jsonassert.JSONAssert
+import spock.lang.Specification
 
-class OrderShowV2Spec extends HibernateSpec implements JsonViewTest {
+@Integration
+@Rollback
+class OrderShowV2IntegrationSpec extends Specification {
 
     def "test _links appear in JSON"() {
-        setup:
-        def (Category clothing, Category furniture, Category tools) = BootStrap.fixtureCategories()
-        def products = BootStrap.fixtureProducts(clothing, furniture, tools)
-        def customers = BootStrap.fixtureCustomers()
-        def orders  = BootStrap.fixtureOrders(products, customers)
+        given:
+        RestBuilder rest = new RestBuilder()
 
         when:
-        def order = orders.first()
-        def result = render(view: "/order/show_v2", model:[order: order])
-        def expectedJsonString = '''
+        def resp = rest.get("http://localhost:${serverPort}/api/orders/v2/1?lang=en") {
+            header("Accept", "application/json")
+        }
+
+        def expectedJsonString = """
         {
             _links: {
                 self: {
-                    href: "http://localhost:8080/api/orders/1",
+                    href: "http://localhost:${serverPort}/api/orders?id=1",
                     hreflang: "en",
                     type: "application/hal+json"
                 },
                 customer: {
-                    href: "http://localhost:8080/api/customers/1",
+                    href: "http://localhost:${serverPort}/api/customers?id=1",
                     hreflang: "en",
                     type: "application/hal+json"
                 }
@@ -55,8 +58,8 @@ class OrderShowV2Spec extends HibernateSpec implements JsonViewTest {
                 id: 1
             }
         }
-        '''
-        JSONAssert.assertEquals(expectedJsonString, result.jsonText, false)
+        """
+        JSONAssert.assertEquals(expectedJsonString, resp.json.toString(), false)
 
         then:
         notThrown AssertionError
