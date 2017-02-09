@@ -64,7 +64,7 @@ Make a request to `http://locahost:8080/api/products`:
 
 [source, javascript]
 ----
-include::{sourceDir}/src/test/groovy/com/example/ProductListSpec.groovy[indent=0,lines=20..177]
+include::{sourceDir}/src/integration-test/groovy/com/example/ProductsListFuncSpec.groovy[indent=0,lines=25..182]
 ----
 
 Make a request to the `next` link, `http://localhost:8080/product/index?offset=10&max=10`, and you'll see the next page of results. Due to the small number of resources in our sample data there will only be 2 pages - try changing the `max` parameter in your request to 4 - you'll now retrieve additional pages to reflect the smaller page size.

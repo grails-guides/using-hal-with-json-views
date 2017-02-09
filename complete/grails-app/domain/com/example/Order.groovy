@@ -1,8 +1,5 @@
 package com.example
 
-import grails.rest.*
-
-@Resource(readOnly = true, uri='/api/orders')
 class Order {
 
     String orderId
