@@ -16,3 +16,5 @@ hal:
   mimeTypes: Custom MIME Types
 explorableAPI:
   title: Explore the API
+helpWithGrails:
+  title: Do you need help with Grails?  
