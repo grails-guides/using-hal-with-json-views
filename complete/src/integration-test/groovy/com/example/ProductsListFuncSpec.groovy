@@ -4,14 +4,12 @@ import grails.plugins.rest.client.RestBuilder
 import grails.test.mixin.integration.Integration
 import grails.transaction.Rollback
 import org.skyscreamer.jsonassert.JSONAssert
-import spock.lang.Ignore
 import spock.lang.Specification
 
 @Integration
 @Rollback
 class ProductsListFuncSpec extends Specification {
 
-    @Ignore
     def "test pagination links appear in JSON"() {
         given:
         RestBuilder rest = new RestBuilder()
@@ -25,20 +23,20 @@ class ProductsListFuncSpec extends Specification {
 {
   "_links": {
     "self": {
-      "href": "http://localhost:${serverPort}/products?offset=0&max=10",
+      "href": "http://localhost:${serverPort}/api/products?offset=0&max=10",
       "hreflang": "en",
       "type": "application/hal+json"
     },
     "first": {
-      "href": "http://localhost:${serverPort}/products?offset=0&max=10",
+      "href": "http://localhost:${serverPort}/api/products?offset=0&max=10",
       "hreflang": "en"
     },
     "next": {
-      "href": "http://localhost:${serverPort}/products?offset=10&max=10",
+      "href": "http://localhost:${serverPort}/api/products?offset=10&max=10",
       "hreflang": "en"
     },
     "last": {
-      "href": "http://localhost:${serverPort}/products?offset=10&max=10",
+      "href": "http://localhost:${serverPort}/api/products?offset=10&max=10",
       "hreflang": "en"
     }
   },
