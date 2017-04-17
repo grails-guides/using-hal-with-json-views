@@ -19,7 +19,8 @@ class ProductsListFuncSpec extends Specification {
             header("Accept", "application/json")
         }
 
-        def expectedJsonString = """
+        def expectedJsonString = // tag::paginatedJSON[]
+"""
 {
   "_links": {
     "self": {
@@ -178,7 +179,7 @@ class ProductsListFuncSpec extends Specification {
   "sort": null,
   "order": null
 }
-"""
+"""// end::paginatedJSON[]
         JSONAssert.assertEquals(expectedJsonString, resp.json.toString(), true)
 
         then:
