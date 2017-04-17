@@ -43,7 +43,7 @@ include::{sourceDir}/grails-app/views/product/show.gson[]
 
 Now make a request to `http://localhost:8080/api/products/1`:
 
-[source, javascript]
+[source, groovy]
 ----
 include::{sourceDir}/src/integration-test/groovy/com/example/ProductsShowFuncSpec.groovy[indent=0,lines=23..47]
 ----
@@ -60,14 +60,14 @@ include::{sourceDir}/grails-app/views/order/show_v4.gson[indent=0,lines="1..9"]
 
 Make a request to `http://localhost:8080/api/orders/1`:
 
-[source, javascript]
+[source, groovy]
 ----
 include::{sourceDir}/src/integration-test/groovy/com/example/OrdersShowFuncSpec.groovy[lines=33..46]
 ----
 
 Now clients of our API can access the details of embedded resources, without making additional requests.
 
-[source, javascript]
+[source, groovy]
 ----
 //examples are using the fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 

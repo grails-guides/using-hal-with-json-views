@@ -29,7 +29,7 @@ Now if you make a request to `/api/orders/1`, you should see the following outpu
 curl -H "Accept: application/json" localhost:8080/api/orders/1
 ----
 
-[source, javascript]
+[source, groovy]
 ----
 include::{sourceDir}/src/test/groovy/com/example/OrderShowV1Spec.groovy[indent=0,lines=25..50]
 ----

@@ -18,7 +18,7 @@ Now that the Grails app is running, we can try out the API that Grails generated
 curl -H "Accept: application/json" localhost:8080/api/products
 ----
 
-[source, javascript]
+[source, groovy]
 ----
 include::{sourceDir}/../initial/src/integration-test/groovy/com/example/ProductsListSpec.groovy[indent=0,lines=22..44]
 //...
@@ -32,7 +32,7 @@ Here, a GET request to `/api/orders/1` returns the `Order` with an id of 1:
 curl -H "Accept: application/json" localhost:8080/api/orders/1
 ----
 
-[source, javascript]
+[source, groovy]
 ----
 include::{sourceDir}/../initial/src/integration-test/groovy/com/example/OrderShowSpec.groovy[indent=0,lines=22..44]
 ----

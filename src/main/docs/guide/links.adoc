@@ -24,7 +24,7 @@ Here's a sample of a JSON body with a `_links` field, and two links:
 
 When a HAL resource is accessed by a client, it is possible to "browse" the relationships expressed in the `_links` field without the client knowing the exact makeup of the API endpoint.
 
-[source, javascript]
+[source, groovy]
 ----
 //examples are using the fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 
@@ -83,7 +83,7 @@ include::{sourceDir}/grails-app/views/order/show_v2.gson[]
 
 Make a request to `http://localhost:8080/api/orders/1`:
 
-[source, javascript]
+[source, groovy]
 ----
 include::{sourceDir}/src/integration-test/groovy/com/example/OrderShowV2IntegrationSpec.groovy[indent=0,lines=23..60]
     //...

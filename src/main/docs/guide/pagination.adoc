@@ -62,7 +62,7 @@ include::{sourceDir}/grails-app/views/product/_product.gson[]
 
 Make a request to `http://locahost:8080/api/products`:
 
-[source, javascript]
+[source, groovy]
 ----
 include::{sourceDir}/src/integration-test/groovy/com/example/ProductsListFuncSpec.groovy[indent=0,lines=25..182]
 ----
