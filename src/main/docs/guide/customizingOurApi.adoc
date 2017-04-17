@@ -9,7 +9,7 @@ Create a new directory under `grails-app/views`, called `order`:
 $ mkdir grails-app/views/order
 ----
 
-TIP: If you're familiar with Grails' view resolution, ou may be thinking we need to create an `OrderController` in order to use views from our `order` directory. We could do that, however because we're making use of the `@Resource` annotation on our domain class, Grails will generate an associated `OrderController` (which will in turn inherit from `RestfulController`) for us. So at this point, we don't need to create a controller for our `Order` class.
+TIP: If you're familiar with Grails' view resolution, you may be thinking we need to create an `OrderController` in order to use views from our `order` directory. We could do that, however because we're making use of the `@Resource` annotation on our domain class, Grails will generate an associated `OrderController` (which will in turn inherit from `RestfulController`) for us. So at this point, we don't need to create a controller for our `Order` class.
 
 Create a new JSON view called `show.gson`. This will resolve to the `show` action in our controller, just as a `show.gsp` page would in a normal Grails application. Edit the new view with the following content:
 
