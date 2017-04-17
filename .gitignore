@@ -4,3 +4,4 @@ build/
 target/
 /.idea/workspace.xml
 *.db
+.idea
