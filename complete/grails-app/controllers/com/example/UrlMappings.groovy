@@ -4,9 +4,9 @@ class UrlMappings {
 
     static mappings = {
 
-        // tag:urlMappingsWithResources[]
+        // tag::urlMappingsWithResources[]
         "/api/products"(resources: "product")
-// end:urlMappingsWithResources[]
+        // end::urlMappingsWithResources[]
         get "/api/orders/v1/$id"(controller: 'order', action: 'showv1')
         get "/api/orders/v2/$id"(controller: 'order', action: 'showv2')
         get "/api/orders/v3/$id"(controller: 'order', action: 'showv3')
