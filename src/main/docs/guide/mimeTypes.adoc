@@ -3,7 +3,7 @@ HAL resources can declare a custom "MIME Type" (or "Content Type") that clients 
 [source,yml]
 .grails-app/conf/application.yml
 ----
-include::{sourceDir}/grails-app/conf/application.yml[indent=0,lines="28..44"]
+include::{sourceDir}/grails-app/conf/application.yml[indent=0,lines="36..52"]
 ----
 
 You can specify a custom MIME type for your API if you wish, by adding an entry to this configuration:
@@ -11,7 +11,7 @@ You can specify a custom MIME type for your API if you wish, by adding an entry 
 [source,yml]
 .grails-app/conf/application.yml
 ----
-include::{sourceDir}/grails-app/conf/application.yml[indent=0,lines="42..55"]
+include::{sourceDir}/grails-app/conf/application.yml[indent=0,lines="50..63"]
 ----
 <1> Specifies a MIME type called `inventory`, and gives it a type specification (by convention, `vnd` indicates a "vendor" MIME type)
 
