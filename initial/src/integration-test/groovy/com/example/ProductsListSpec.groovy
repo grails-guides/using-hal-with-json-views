@@ -1,11 +1,11 @@
 package com.example
 
 import grails.plugins.rest.client.RestBuilder
-import grails.test.mixin.integration.Integration
 import grails.transaction.Rollback
 import groovy.json.JsonSlurper
 import org.skyscreamer.jsonassert.JSONAssert
 import spock.lang.Specification
+import grails.testing.mixin.integration.Integration
 
 @Integration
 @Rollback
