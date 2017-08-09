@@ -1,8 +1,8 @@
 package com.example
 
 import grails.plugin.json.view.test.JsonViewTest
-import grails.test.hibernate.HibernateSpec
 import org.skyscreamer.jsonassert.JSONAssert
+import grails.test.hibernate.HibernateSpec
 
 class OrderShowV1Spec extends HibernateSpec implements JsonViewTest {
 
