@@ -30,6 +30,7 @@ endpoints:
         enabled: true
 
 ---
+#tag::mimeType[]
 grails:
     mime:
         disable:
@@ -43,13 +44,15 @@ grails:
         types:
             json:
               - application/json
-              - text/json   
+              - text/json
             hal:
               - application/hal+json
-              - application/hal+xml  
+              - application/hal+xml
+#end::mimeType[]
+#tag::customMimeType[]
             xml:
               - text/xml
-              - application/xml                                 
+              - application/xml
             atom: application/atom+xml
             css: text/css
             csv: text/csv
@@ -58,6 +61,7 @@ grails:
             text: text/plain
             all: '*/*'
             inventory: "application/vnd.com.example.inventory+json" #<1>
+#end::customMimeType[]
     urlmapping:
         cache:
             maxsize: 1000
