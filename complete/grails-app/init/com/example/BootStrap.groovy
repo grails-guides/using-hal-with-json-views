@@ -9,9 +9,9 @@ class BootStrap {
 
         def (Category clothing, Category furniture, Category tools) = fixtureCategories()
 
-        def products = fixtureProducts(clothing, furniture, tools)
+        List<Product> products = fixtureProducts(clothing, furniture, tools)
 
-        def customers = fixtureCustomers()
+        List<Customer> customers = fixtureCustomers()
 
         fixtureOrders(products, customers)
 
