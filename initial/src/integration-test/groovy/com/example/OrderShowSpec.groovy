@@ -1,20 +1,25 @@
 package com.example
 
-import grails.plugins.rest.client.RestBuilder
-import grails.test.mixin.integration.Integration
-import grails.transaction.Rollback
-import groovy.json.JsonSlurper
+import grails.testing.mixin.integration.Integration
+import grails.testing.spock.OnceBefore
+import io.micronaut.http.HttpRequest
+import io.micronaut.http.HttpResponse
+import io.micronaut.http.HttpStatus
+import io.micronaut.http.client.BlockingHttpClient
+import io.micronaut.http.client.HttpClient
 import org.skyscreamer.jsonassert.JSONAssert
 import spock.lang.Specification
 
 @Integration
-@Rollback
 class OrderShowSpec extends Specification {
+    BlockingHttpClient client
 
+    @OnceBefore
+    void init() {
+        String baseUrl = "http://localhost:$serverPort"
+        this.client  = HttpClient.create(baseUrl.toURL()).toBlocking()
+    }
     def "test order JSON output is as expected"() {
-        given:
-        RestBuilder rest = new RestBuilder()
-
         when:
         def expectedJsonString =
 // tag::orderJSON[]
@@ -44,13 +49,11 @@ class OrderShowSpec extends Specification {
 }
 '''
 // end::orderJSON[]
-        def resp = rest.get("http://localhost:${serverPort}/api/orders/1") {
-            header("Accept", "application/json")
-        }
-        JSONAssert.assertEquals(expectedJsonString, resp.json.toString(), false)
+        HttpResponse<String> resp = client.exchange(HttpRequest.GET('/api/orders/1'), String)
+        JSONAssert.assertEquals(expectedJsonString, resp.body.get().toString(), false)
 
         then:
-        resp.status == 200
+        resp.status == HttpStatus.OK
         notThrown AssertionError
 
 

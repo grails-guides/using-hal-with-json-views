@@ -61,6 +61,10 @@ dependencies {
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.grails:grails-web-testing-support"
     testCompile 'org.skyscreamer:jsonassert:1.5.0'
+
+    //tag::micronaut-http-client[]
+    testCompile "io.micronaut:micronaut-http-client"
+    //end::micronaut-http-client[]
 }
 
 bootRun {
