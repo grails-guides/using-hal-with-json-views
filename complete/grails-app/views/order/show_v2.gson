@@ -1,5 +1,9 @@
 import com.example.Order
 
+import java.text.SimpleDateFormat
+
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat('M-dd-yyy')
+
 model {
     Order order
 }
@@ -8,7 +12,7 @@ json {
 
     id order.orderId
     shippingCost order.shippingCost
-    date order.orderPlaced.format('M-dd-yyy')
+    date simpleDateFormat.format(order.orderPlaced)
 
     shippingAddress {
         street order.shippingAddress.street

@@ -7,6 +7,8 @@ import com.example.Order
 import com.example.Product
 import com.example.State
 
+import java.text.SimpleDateFormat
+
 class BootStrap {
 
     def init = { servletContext ->
@@ -23,8 +25,9 @@ class BootStrap {
     }
 
     private static List<Order> fixtureOrders(List<Product> products, List<Customer> customers) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat('yyyy-MM-dd HH:mm:ss')
         def orders = [
-                [orderId: "0A12321", shippingCost: 13.54, products: [products[5], products[0], products[10]], customer: customers[0], shippingAddress: customers[0].address, orderPlaced: new Date().parse('yyyy-MM-dd HH:mm:ss', '2017-02-08 10:10:36')],
+                [orderId: "0A12321", shippingCost: 13.54, products: [products[5], products[0], products[10]], customer: customers[0], shippingAddress: customers[0].address, orderPlaced: simpleDateFormat.parse('2017-02-08 10:10:36')],
                 [orderId: "0A16546", shippingCost: 9.19, products: [products[1], products[6], products[3]], customer: customers[0], shippingAddress: customers[0].address],
                 [orderId: "0A27345", shippingCost: 14.60, products: [products[7], products[8]], customer: customers[1], shippingAddress: customers[1].address],
                 [orderId: "0A78129", shippingCost: 3.82, products: [products[4]], customer: customers[2], shippingAddress: customers[2].address],
