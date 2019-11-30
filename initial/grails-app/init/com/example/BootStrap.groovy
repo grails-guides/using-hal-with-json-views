@@ -1,12 +1,5 @@
 package com.example
 
-import com.example.Address
-import com.example.Category
-import com.example.Customer
-import com.example.Order
-import com.example.Product
-import com.example.State
-
 import java.text.SimpleDateFormat
 
 class BootStrap {
@@ -24,7 +17,7 @@ class BootStrap {
 
     }
 
-    private static List<Order> fixtureOrders(List<Product> products, List<Customer> customers) {
+    static List<Order> fixtureOrders(List<Product> products, List<Customer> customers) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat('yyyy-MM-dd HH:mm:ss')
         def orders = [
                 [orderId: "0A12321", shippingCost: 13.54, products: [products[5], products[0], products[10]], customer: customers[0], shippingAddress: customers[0].address, orderPlaced: simpleDateFormat.parse('2017-02-08 10:10:36')],
@@ -34,11 +27,14 @@ class BootStrap {
                 [orderId: "0F35439", shippingCost: 13.40, products: [products[11], products[12]], customer: customers[3], shippingAddress: customers[3].address],
                 [orderId: "0F35523", shippingCost: 6.00, products: [products[11], products[0]], customer: customers[3], shippingAddress: new Address(street: '93 Harvey Blvd', state: State.AZ, city: "Phoenix", zip: 892342)]
         ].collect { new Order(it) }
-        orders*.save()
-        orders
+        orders.collect { order ->
+            Order.withTransaction {
+                order.save()
+            }
+        }
     }
 
-    private static List<Customer> fixtureCustomers() {
+    static List<Customer> fixtureCustomers() {
         def customers = [
                 [firstName: "Peter", lastName: "River", address: new Address(street: '321 Arrow Ln',
                         state: State.IL,
@@ -57,11 +53,16 @@ class BootStrap {
                         city: "Tucson",
                         zip: 865427)]
         ].collect { new Customer(it)}
-        customers*.save()
-        customers
+        customers.collect { customer ->
+            Customer.withTransaction {
+                customer.save()
+            }
+        }
     }
 
-    private static List<Product> fixtureProducts(Category clothing, Category furniture, Category tools) {
+    static List<Product> fixtureProducts(Category clothing,
+                                         Category furniture,
+                                         Category tools) {
         def products = [
                 [name: 'Cargo Pants', inventoryId: 'CLOTH001', price: 15.00, category: clothing],
                 [name: 'Sweater', inventoryId: 'CLOTH002', price: 12.00, category: clothing],
@@ -77,15 +78,24 @@ class BootStrap {
                 [name: 'Block Plane', inventoryId: 'TOOL003', price: 50.00, category: tools],
                 [name: 'Chisel', inventoryId: 'TOOL004', price: 22.00, category: tools]
         ].collect { new Product(it) }
-        products*.save()
-        products
+        products.collect { product ->
+            Product.withTransaction {
+                product.save()
+            }
+        }
     }
 
-    private static List<Category> fixtureCategories() {
-        def (clothing, furniture, tools) = ['Clothing', 'Furniture', 'Tools'].collect { new Category(name: it) }
-        [clothing, furniture, tools]*.save()
-        [clothing, furniture, tools]
+    static List<Category> fixtureCategories() {
+        List<Category> categories = ['Clothing', 'Furniture', 'Tools'].collect {
+            new Category(name: it)
+        }
+        categories.collect { category ->
+            Category.withTransaction {
+                category.save()
+            }
+        }
     }
+
     def destroy = {
     }
 }
