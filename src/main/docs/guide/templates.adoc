@@ -25,7 +25,7 @@ Make a request to `http://localhost:8080/api/orders/1`, and you should see `_lin
 
 [source, groovy]
 ----
-include::{sourceDir}/src/integration-test/groovy/com/example/OrderShowV3IntegrationSpec.groovy[indent=0,lines=23..78]
+include::{sourceDir}/src/integration-test/groovy/com/example/OrderShowV3IntegrationSpec.groovy[indent=0,lines=30..85]
 ----
 
 

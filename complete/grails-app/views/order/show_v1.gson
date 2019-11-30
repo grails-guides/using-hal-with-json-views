@@ -10,9 +10,9 @@ model {
 json {
     id order.orderId
     shippingCost order.shippingCost
-    date simpleDateFormat.format(order.orderPlaced) //<1>
+    date simpleDateFormat.format(order.orderPlaced)
 
-    shippingAddress { //<2>
+    shippingAddress { //<1>
         street order.shippingAddress.street
         street2 order.shippingAddress.street2
         city order.shippingAddress.city
@@ -20,7 +20,7 @@ json {
         zip order.shippingAddress.zip
     }
 
-    products order.products.collect { [id: it.id] } //<3>
+    products order.products.collect { [id: it.id] } //<2>
 
     customer {
         id order.customer.id

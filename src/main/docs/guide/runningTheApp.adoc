@@ -20,7 +20,7 @@ curl -H "Accept: application/json" localhost:8080/api/products
 
 [source, groovy]
 ----
-include::{sourceDir}/../initial/src/integration-test/groovy/com/example/ProductsListSpec.groovy[indent=0,lines=22..44]
+include::{sourceDir}/../initial/src/integration-test/groovy/com/example/ProductsListSpec.groovy[indent=0,tag=productsJSON]
 //...
 ]
 ----
@@ -34,7 +34,7 @@ curl -H "Accept: application/json" localhost:8080/api/orders/1
 
 [source, groovy]
 ----
-include::{sourceDir}/../initial/src/integration-test/groovy/com/example/OrderShowSpec.groovy[indent=0,lines=22..44]
+include::{sourceDir}/../initial/src/integration-test/groovy/com/example/OrderShowSpec.groovy[indent=0,tag=orderJSON]
 ----
 
 NOTE: Because we've specified `readOnly = true` in our `@Resource` annotations, Grails will not generate endpoints for update/create/delete operations. This is sufficient for the steps in this guide, but you can remove the `readOnly` property (or set it to `false`) to enable the "write" operations.

@@ -45,7 +45,7 @@ Now make a request to `http://localhost:8080/api/products/1`:
 
 [source, groovy]
 ----
-include::{sourceDir}/src/integration-test/groovy/com/example/ProductsShowFuncSpec.groovy[indent=0,lines=23..47]
+include::{sourceDir}/src/integration-test/groovy/com/example/ProductsShowFuncSpec.groovy[indent=0,lines=30..54]
 ----
 
 In previous code snippet, the `category` object includes the default JSON renderer output for our `Category` resource, as well as a `_self` link so clients can request the category directly if needed.
@@ -55,14 +55,14 @@ Let's use the `embedded method on the `order/show.gson` view, and embed the `ord
 [source,groovy]
 .grails-app/views/order/show.gson
 ----
-include::{sourceDir}/grails-app/views/order/show_v4.gson[indent=0,lines="1..9"]
+include::{sourceDir}/grails-app/views/order/show_v4.gson[indent=0]
 ----
 
 Make a request to `http://localhost:8080/api/orders/1`:
 
 [source, groovy]
 ----
-include::{sourceDir}/src/integration-test/groovy/com/example/OrdersShowFuncSpec.groovy[lines=33..46]
+include::{sourceDir}/src/integration-test/groovy/com/example/OrdersShowFuncSpec.groovy[lines=33..99]
 ----
 
 Now clients of our API can access the details of embedded resources, without making additional requests.

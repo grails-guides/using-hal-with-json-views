@@ -18,9 +18,8 @@ Create a new JSON view called `show.gson`. This will resolve to the `show` actio
 ----
 include::{sourceDir}/grails-app/views/order/show_v1.gson[]
 ----
-<1> Note that we are using Groovy's `format` method on the `Date` class to customize the format of the `orderPlaced` property
-<2> Here we're filling out our `shippingAddress` with the fields from the `Address` class
-<3> Notice that we're iterating over a collect (`order.products`) with the `collect` method and returning a map - this will create a JSON array of objects
+<1> Here we're filling out our `shippingAddress` with the fields from the `Address` class
+<2> Notice that we're iterating over a collect (`order.products`) with the `collect` method and returning a map - this will create a JSON array of objects
 
 Now if you make a request to `/api/orders/1`, you should see the following output:
 

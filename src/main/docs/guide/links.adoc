@@ -85,7 +85,7 @@ Make a request to `http://localhost:8080/api/orders/1`:
 
 [source, groovy]
 ----
-include::{sourceDir}/src/integration-test/groovy/com/example/OrderShowV2IntegrationSpec.groovy[indent=0,lines=23..60]
+include::{sourceDir}/src/integration-test/groovy/com/example/OrderShowV2IntegrationSpec.groovy[indent=0,lines=31..68]
     //...
 }
 ----
