@@ -60,7 +60,7 @@ dependencies {
     runtime "org.apache.tomcat:tomcat-jdbc"
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.grails:grails-web-testing-support"
-    testCompile 'org.skyscreamer:jsonassert:1.4.0'
+    testCompile 'org.skyscreamer:jsonassert:1.5.0'
 }
 
 bootRun {
