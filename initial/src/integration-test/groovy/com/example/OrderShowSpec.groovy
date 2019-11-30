@@ -8,6 +8,7 @@ import io.micronaut.http.HttpStatus
 import io.micronaut.http.client.BlockingHttpClient
 import io.micronaut.http.client.HttpClient
 import org.skyscreamer.jsonassert.JSONAssert
+import spock.lang.Ignore
 import spock.lang.Specification
 
 @Integration
@@ -19,6 +20,8 @@ class OrderShowSpec extends Specification {
         String baseUrl = "http://localhost:$serverPort"
         this.client  = HttpClient.create(baseUrl.toURL()).toBlocking()
     }
+
+    @Ignore
     def "test order JSON output is as expected"() {
         when:
         def expectedJsonString =
